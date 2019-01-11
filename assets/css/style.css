@@ -1,0 +1,33 @@
+body {
+    width: 75%;
+    margin: auto;
+}
+
+.crystals-container {
+    /* width: 75%; */
+    overflow: hidden;
+}
+
+.crystal {
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+h1, h4, h5 {
+    color: darkslategrey;
+    text-transform: lowercase;
+}
+
+h1, h4 {
+    font-weight: bold;
+}
+
+p {
+    color: grey;
+}
+
+.num {
+    font-weight: 400;
+}

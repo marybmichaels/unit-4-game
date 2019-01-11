@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Collector</title>
+    
+    <!-- Link to CSS Reset -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    
+    <!-- Added a link to Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Link to jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Link to JS -->
+    <script src="assets/javascript/game.js"></script>
+
+</head>
+<body>
+<br>    
+    <h1 class="header">Crystal Collector</h1>
+        <br>
+
+    <section class="text row">
+        <div class="instructions col-sm-6">
+            <h4>Instructions</h4>
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are 4 crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+            <p>You will win the game by matching your total score to the random number. If your total score reaches above the random number, you will lose.</p>
+            <p>The value of each crystal is hidden, until you click on it.</p>
+            <p>Each time the game begins, different values will be assigned to each crystal.</p>
+        </div>
+
+        <div class="scores col-sm-6">
+            <div class="row">
+                <h5 class="col-sm-4">Random Number:</h5>
+                <h5 class= "col-sm-8 num" id="ranNumText"></h5>
+            </div>
+            <div class="row">
+                <h5 class="col-sm-4">Total Score:</h5>
+                <h5 class= "col-sm-8 num" id="totalScore">--</h5>
+            </div>
+            <div class="row">
+                <h5 class="col-sm-4">Wins:</h5>
+                <h5 class= "col-sm-8 num" id="winText"></h5>
+            </div>
+            <div class="row">
+                <h5 class="col-sm-4">Losses:</h5>
+                <h5 class= "col-sm-8 num" id="lossText"></h5>
+            </div>
+        </div>
+    </section>
+
+    <div class="crystals-container row">
+
+        <img src="assets/images/crystal1.png" class="crystal col-xs-12 col-sm-6 col-md-3 col-lg-3" id="c1" number="0">
+        <img src="assets/images/crystal2.png" class="crystal col-xs-12 col-sm-6 col-md-3 col-lg-3" id="c2" value="0">
+        <img src="assets/images/crystal3.png" class="crystal col-xs-12 col-sm-6 col-md-3 col-lg-3" id="c3" value="0">
+        <img src="assets/images/crystal4.png" class="crystal col-xs-12 col-sm-6 col-md-3 col-lg-3" id="c4" value="0">
+    </div>
+
+</body>
+</html>

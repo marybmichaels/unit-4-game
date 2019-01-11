@@ -5,25 +5,37 @@ var crystal = $(".crystal")
 
 //Random Number Generator
 var ranNum = Math.floor(Math.random()*(102)+19);
-$("#ranNumText").text(ranNum);
-
+function ranNumFunct () {
+    $("#ranNumText").text(ranNum);
+}
 console.log("ranNum = ", ranNum);
+ranNumFunct();
+
+
+var crys1num = 0;
+var crys2num = 0;
+var crys3num = 0;
+var crys4num = 0;
+
 // Random Crystal Numbers
-var crys1num = Math.floor(Math.random()*(12)+1);
-var crys2num = Math.floor(Math.random()*(12)+1);
-var crys3num = Math.floor(Math.random()*(12)+1);
-var crys4num = Math.floor(Math.random()*(12)+1);
+function crysVarFunct (){
+crys1num = Math.floor(Math.random()*(12)+1);
+crys2num = Math.floor(Math.random()*(12)+1);
+crys3num = Math.floor(Math.random()*(12)+1);
+crys4num = Math.floor(Math.random()*(12)+1);
 console.log("c1 = " + crys1num);
-console.log("c1 = " + crys2num);
-console.log("c1 = " + crys3num);
-console.log("c1 = " + crys4num);
+console.log("c2 = " + crys2num);
+console.log("c3 = " + crys3num);
+console.log("c4 = " + crys4num);
+}
+crysVarFunct();
 
 // Total Score Value
 var score = 0
 function showScore () {
     $("#totalScore").text(score);
     return score
-}
+};
 
 
 // Click on Crystal 1
@@ -58,19 +70,46 @@ $("#c4").on("click", function() {
     return score;
 });
 
+// Win Variable
 var win = 0
-$("#winText").text(win);
+function winFunct () {
+    $("#winText").text(win);
+}
+winFunct (); 
 
+// Lose Variable
 var lose = 0
-$("#lossText").text(lose);
+function loseFunct () {
+    $("#lossText").text(lose);
+}
+loseFunct();
 
-function resetGame() {
-    if (score = ranNum) {
-        alert("You win!");
+// Win or Lose Function
+function winLose() {
+    if (score === ranNum) {
+        win = win + 1;
+        winFunct();
+        resetGame();
+        return win;
     }
     else if (score > ranNum) {
-        alert("You lose!");
+        lose = lose + 1;
+        loseFunct();
+        resetGame();
+        return lose;
     }
 };
+
+// Listener for win or loss
+$(".crystal").on("click", function() {
+    winLose();
+});
+
+function resetGame () {
+    ranNumFunct();
+    crysVarFunct();
+    score = 0;
+    showScore()
+}
 
 });

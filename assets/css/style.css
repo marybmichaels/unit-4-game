@@ -26,8 +26,11 @@ h1, h4 {
 
 p {
     color: grey;
+    margin-bottom: .2em;
+    margin-top: .2em;
 }
 
 .num {
     font-weight: 400;
+    /* text-align: right; */
 }

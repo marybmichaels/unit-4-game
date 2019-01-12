@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
-var crystal = $(".crystal")
+// var crystal = $(".crystal")
 
 
 //Random Number Generator
-var ranNum = Math.floor(Math.random()*(102)+19);
+var ranNum = 0;
 function ranNumFunct () {
+    ranNum = Math.floor(Math.random()*(102)+19);
     $("#ranNumText").text(ranNum);
 }
 console.log("ranNum = ", ranNum);
@@ -30,11 +31,11 @@ console.log("c4 = " + crys4num);
 }
 crysVarFunct();
 
-// Total Score Value
+// Show score Variable & Function
 var score = 0
 function showScore () {
     $("#totalScore").text(score);
-    return score
+    return score;
 };
 
 
@@ -42,7 +43,6 @@ function showScore () {
 $("#c1").on("click", function() {
     $("#c1").attr("number", crys1num);
     score = score + crys1num;
-    showScore();
     return score;
 });
 
@@ -50,7 +50,6 @@ $("#c1").on("click", function() {
 $("#c2").on("click", function() {
     $("#c2").attr("number", crys2num);
     score = score + crys2num;
-    showScore();
     return score;
 });
 
@@ -58,7 +57,6 @@ $("#c2").on("click", function() {
 $("#c3").on("click", function() {
     $("#c3").attr("number", crys3num);
     score = score + crys3num;
-    showScore();
     return score;
 });
 
@@ -66,7 +64,6 @@ $("#c3").on("click", function() {
 $("#c4").on("click", function() {
     $("#c4").attr("number", crys4num);
     score = score + crys4num;
-    showScore();
     return score;
 });
 
@@ -84,27 +81,34 @@ function loseFunct () {
 }
 loseFunct();
 
+// Listener for win or loss
+$(".crystal").on("click", function() {
+    showScore();
+    winLose();
+});
+
 // Win or Lose Function
 function winLose() {
     if (score === ranNum) {
         win = win + 1;
         winFunct();
+        console.log("score is:", score);
         resetGame();
+        // alert("You win! You guessed: " + score);
         return win;
     }
     else if (score > ranNum) {
         lose = lose + 1;
         loseFunct();
+        console.log("score is:", score);
         resetGame();
+        // alert("You lose! You guessed: " + score);
         return lose;
     }
 };
 
-// Listener for win or loss
-$(".crystal").on("click", function() {
-    winLose();
-});
 
+// Game Reset
 function resetGame () {
     ranNumFunct();
     crysVarFunct();
